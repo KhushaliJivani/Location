@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <style>
+    
+        .main-label
+        {
+            text-align: center;
+            font-size: 25px;
+            line-height: 38px;
+            color: #3d2514;
+            font-weight: 700;
+            font-family: "Bebas Neue";
+            width: 218px;
+            height: 39px;
+            background-color: #ffc045;
+            margin-bottom:20px;
+            position:relative;
+            top: 50%;
+            margin: auto;
+            left: 0;
+            right: 0;
+        }
+        .main-form{
+            margin-left:30%;
+            width:50%;
+            height:50%;
+        }
+        .inputLocation{
+            font-weight:bold;
+            font-size: 20px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+   
+    <title>Document</title>
+    
+</head>
+<body>
+    <section id="main">
+        <br><br>
+        <div class="container-first">
+            <div class="main-label"><label>Add Location</label></div>
+            <br>
+        <div class="main-form">
+            <form action="/addLocation" method="POST">
+                <div class="form-group">
+                  <label class="inputLocation">Location</label>
+                  <input type="text" class="form-control" id="location" name="addLocation" placeholder="Enter Location you want to add">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+    </section>
+    <script src="../views/js/jQuery.min.js"></script>
+    <script src="../views/js/bootstrap.min.js"></script>
+</body>
+</html>

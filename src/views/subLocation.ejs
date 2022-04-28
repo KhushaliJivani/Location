@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <title>Document</title>
+    <style>
+        .container-first{
+            text-align: center;
+            
+        }
+        .main-label
+        {
+            font-size: 25px;
+            line-height: 38px;
+            color: #3d2514;
+            font-weight: 700;
+            font-family: "Bebas Neue";
+            width: 218px;
+            height: 39px;
+            background-color: #ffc045;
+            margin-bottom:20px;
+            position:relative;
+            top: 50%;
+            margin: auto;
+            left: 0;
+            right: 0;
+        }
+        .table-data{
+            margin-left:26%;
+            width:50%;
+            height:50%;
+        }
+        .edit{
+            color:goldenrod;
+        }
+        .delete{
+            color:red;
+        }
+        .location{
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+    <body>
+        <section id="main">
+            <br><br>
+            <div class="container-first">
+                <div class="main-label"><label>Add Sub Location</label></div>
+                <br>
+            <div class="main-buttons">
+                <a href="/subLocationAdd/<%= locationToDisplay._id %>/<%= locationToDisplay.stage %>"><button type="button" class="btn btn-primary"><b>ADD Location</b></button></a>
+                <a href="/back/<%=locationToDisplay._id%>"><button type="button" class="btn btn-secondary"><b>BACK</b></button></a>
+            </div><br><h1 class="location"><%= locationToDisplay.name %></h1><hr>
+            <div class="table-data">
+                <table class="table table-striped" border="1">
+                    <thead>
+                      <tr>
+                        <th scope="col">Index</th>
+                        <th scope="col">Location</th>
+                        <th scope="col">Action</th>
+                      </tr>
+                    </thead>
+                        <tbody>
+                            <% var i=1; %>
+                            <% subLocation.forEach(subLocation=>{ %>
+                          <tr>
+                            <th scope="row"><%= i %></th>
+                            <td><a href="/subLocation/<%= subLocation._id %>/<%= subLocation.stage%>"><%= subLocation.name %></a></td>
+                            <td><a class="edit" data-toggle="tooltip" href="/editLocation/<%=subLocation._id %>"><i class="material-icons">&#xE254;</i></a>&nbsp;&nbsp;&nbsp;<a class="delete" data-toggle="tooltip" href="/deleteLocation/<%= subLocation._id %>"><i class="material-icons">&#xE872;</i></a></td>
+                          </tr>
+                          <% i++ %>
+                          <%})%>
+                        </tbody>
+                </table>
+            </div><hr><h1 class="location"><%= locationToDisplay.name %></h1>
+            <div class="table-data">
+                <table class="table table-striped" border="1">
+                        <thead>
+                        <tr>
+                            <th scope="col">Index</th>
+                            <th scope="col">Product</th>
+                        </tr>
+                        </thead>
+                            <tbody>
+                                <% var i=1; %>
+                                <% productUnderLocation.forEach(productUnderLocation=>{ %>
+                            <tr>
+                                <th scope="row"><%= i %></th>
+                                <td><%= productUnderLocation.productName %></td>
+                            </tr>
+                            <% i++ %>
+                            <%})%>
+                            </tbody>
+                </table>
+            </div>  
+        </div>
+        </section>
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script> -->
+        <script src="../views/js/jQuery.min.js"></script>
+        <script src="../views/js/bootstrap.min.js"></script>
+    </body>
+</html>
